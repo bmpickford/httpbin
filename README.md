@@ -21,7 +21,7 @@ Small CLI application to quickly spin up a server to collect requests and dump t
 | ---- |:-------:|:-------:|:-----|
 | port | Number  | 8080    | Port number to run on |
 | out  | String  | stdout  | Name of outfile. Will use stdout if nothing is supplied |
-| har  | Boolean | false   | Use har format. Will output to a file |
+| har  | Boolean | false   | Use har format |
 
 
 ### Example

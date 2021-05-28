@@ -31,10 +31,10 @@ Output request on port 5000 to a har file named myreqs.har
 
 
 ## Use Cases
- > As a developer, I don't have an API ready yet but would like to output some dummy requests to verify my requests
+ > As a developer, I don't have an API ready yet but would like to output some requests to inspect the data
 
  > As a developer, I would like to manually see how my System would respond to different HTTP response codes for a specific request
 
- > As a developer, I would like to debug my application by dumping all my request information being sent with local changes
+ > As a developer, I would like to debug my application locally by dumping all my request information being sent
 
 TODO: tests

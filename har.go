@@ -12,7 +12,7 @@ import (
 var startingEntrySize int = 1000
 
 type Har struct {
-	HarLog HarLog `json:"harLog"`
+	HarLog HarLog `json:"log"`
 }
 
 type HarLog struct {
@@ -84,8 +84,6 @@ type HarRequest struct {
 	HeadersSize int64              `json:"headersSize"`
 }
 
-var captureContent bool = true
-
 func parseRequest(req *http.Request) *HarRequest {
 	if req == nil {
 		return nil
@@ -101,7 +99,7 @@ func parseRequest(req *http.Request) *HarRequest {
 		HeadersSize: calcHeaderSize(req.Header),
 	}
 
-	if captureContent && (req.Method == "POST" || req.Method == "PUT") {
+	if req.Method == "POST" || req.Method == "PUT" {
 		harRequest.PostData = parsePostData(req)
 	}
 
@@ -188,7 +186,7 @@ func parseCookies(cookies []*http.Cookie) []HarCookie {
 type HarResponse struct {
 	Status      int                `json:"status"`
 	StatusText  string             `json:"statusText"`
-	HttpVersion string             `json:"httpVersion`
+	HttpVersion string             `json:"httpVersion"`
 	Cookies     []HarCookie        `json:"cookies"`
 	Headers     []HarNameValuePair `json:"headers"`
 	Content     *HarContent        `json:"content"`
@@ -211,10 +209,7 @@ func parseResponse(resp *http.Response) *HarResponse {
 		RedirectUrl: "",
 		BodySize:    resp.ContentLength,
 		HeadersSize: calcHeaderSize(resp.Header),
-	}
-
-	if captureContent {
-		harResponse.Content = parseContent(resp)
+		Content:     parseContent(resp),
 	}
 
 	return &harResponse
@@ -268,7 +263,7 @@ type HarPostDataParam struct {
 	Name        string `json:"name"`
 	Value       string `json:"value"`
 	FileName    string `json:"fileName"`
-	ContentType string `json:"contentType`
+	ContentType string `json:"contentType"`
 }
 
 type HarContent struct {

@@ -1,9 +1,12 @@
 # HTTPBin
-Small CLI application to quickly spin up a server to collect requests and dump them to a file or stdout for debugging
+Small CLI application to quickly spin up a server to collect requests and dump them to a file or stdout for debugging without setting up a proxy
 
-## Features
+## Why would I use this
  * Easily print local requests
  * Easily test against different status codes
+
+## Demo
+
 
 ## Installation
 

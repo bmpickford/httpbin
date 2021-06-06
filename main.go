@@ -10,6 +10,8 @@ import (
 	"strconv"
 )
 
+var version = ""
+
 type Server struct {
 	outfile string
 	usehar  bool
@@ -83,10 +85,16 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	versionPtr := flag.Bool("version", false, "Display the current version of httpbin")
 	portPtr := flag.Int("port", 8080, "Port number")
 	outPtr := flag.String("out", os.Stdout.Name(), "Output location. Defaults to stdout")
 	harPtr := flag.Bool("har", false, "Transforms request into valid HAR format")
 	flag.Parse()
+
+	if *versionPtr {
+		fmt.Printf("httbin version %s", version)
+		return
+	}
 
 	server := &Server{
 		outfile: *outPtr,

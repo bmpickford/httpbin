@@ -6,6 +6,8 @@ Small CLI application to quickly spin up a server to collect requests and dump t
  * Easily test against different status codes
 
 ## Demo
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/12684286/120925929-23e3a580-c71e-11eb-9f38-1e9d8e6253dc.gif)
+
 
 
 ## Installation

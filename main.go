@@ -64,9 +64,9 @@ func (server *Server) setLogger(next http.HandlerFunc) http.HandlerFunc {
 			if err != nil {
 				panic(err)
 			}
+			defer f.Close()
 		}
 
-		defer f.Close()
 		server.logger.SetFlags(0)
 		server.logger.SetOutput(f)
 		next.ServeHTTP(w, r)

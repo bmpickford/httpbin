@@ -1,9 +1,10 @@
 # HTTPBin
-Small CLI application to quickly spin up a server to collect requests and dump them to a file or stdout for debugging without setting up a proxy
+Small CLI application to quickly spin up a server to collect requests and dump them to a har file or stdout for debugging without setting up a proxy
 
 ## Why would I use this
  * Easily print local requests
  * Easily test against different status codes
+ * Generate har from local requests
 
 ## Demo
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/12684286/120925929-23e3a580-c71e-11eb-9f38-1e9d8e6253dc.gif)
